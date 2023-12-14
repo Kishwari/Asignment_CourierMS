@@ -37,7 +37,7 @@ public class CourierServiceDb {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle exceptions appropriately
+            // Handle exceptions appropriately and correctly
         }
     }
 }
