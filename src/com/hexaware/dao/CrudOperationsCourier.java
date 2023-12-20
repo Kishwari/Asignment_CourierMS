@@ -1,16 +1,12 @@
 package com.hexaware.dao;
-import com.hexaware.entities.Courier;
 import com.hexaware.util.DBConnection;
-import jdk.jshell.Snippet;
-
 import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -90,14 +86,14 @@ public class CrudOperationsCourier {
 
                 // Inserting Data in courier Table
                 String query2 = "INSERT INTO courier (CourierID, sender_name, senderAddress, receiver_name, receiverAddress, Weight, statuss, trackingNo, deliveryDate)\n" +
-                        "VALUES (12, 'Jitendra Kumar', '23/5 Block 1, Alkapuri Dewas', 'Kevin Parker', '128 Stephen Park, California', 4.2, 'Delivered', 'TN255s761', '2023-04-13')";
+                        "VALUES (14, 'Jitendra Kumar', '23/5 Block 1, Alkapuri Dewas', 'Kevin Parker', '128 Stephen Park, California', 4.2, 'Delivered', 'TN285s761', '2023-04-13')";
                 try (Statement statement = testCourierConnection.createStatement()) {
                     int rowsAffected = statement.executeUpdate(query2);
                     if (rowsAffected > 0) {
                         System.out.println("\nAfter Inserting a new row in Courier table, it will look as :");
 
                         // Fetch and display the newly inserted row
-                        try (ResultSet rSet = statement.executeQuery("SELECT * FROM courier WHERE CourierID = 12")) {
+                        try (ResultSet rSet = statement.executeQuery("SELECT * FROM courier WHERE CourierID = 14")) {
                             while (rSet.next()) {
                                 int column1 = rSet.getInt("CourierID");
                                 String column2 = rSet.getString("sender_name");
@@ -122,14 +118,14 @@ public class CrudOperationsCourier {
                 }
 
                 // Updating Status in courier Table
-                String updateQuery = "UPDATE courier SET statuss = 'Out for Delivery' WHERE CourierID = 12";
+                String updateQuery = "UPDATE courier SET statuss = 'Out for Delivery' WHERE CourierID = 14";
                 try (Statement updateStatement = testCourierConnection.createStatement()) {
                     int rowsAffected = updateStatement.executeUpdate(updateQuery);
                     if (rowsAffected > 0) {
                         System.out.println("\n After Updating status for CourierID 12 in Courier table, it will look as :");
 
                         // Fetch and display the updated row
-                        try (ResultSet rSet = updateStatement.executeQuery("SELECT * FROM Courier WHERE CourierID = 12")) {
+                        try (ResultSet rSet = updateStatement.executeQuery("SELECT * FROM Courier WHERE CourierID = 14")) {
                             while (rSet.next()) {
                                 int column1 = rSet.getInt("CourierID");
                                 String column2 = rSet.getString("sender_name");
